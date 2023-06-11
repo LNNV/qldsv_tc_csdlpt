@@ -280,6 +280,7 @@ namespace Quan_Ly_Diem_SV_TC
                 if (row["MASV"].ToString().Equals(rowCT["MASV"].ToString()) && row["NIENKHOA"].ToString().Equals(rowCT["NIENKHOA"].ToString()) && row["HOCKY"].ToString().Equals(rowCT["HOCKY"].ToString()))
                     daDong += int.Parse(rowCT["SOTIENDONG"].ToString());
             }
+            if (String.IsNullOrEmpty(row["HOCPHI"].ToString())) return 0;
             return int.Parse(row["HOCPHI"].ToString()) - daDong;
         }
 
