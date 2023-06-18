@@ -439,7 +439,8 @@ namespace Quan_Ly_Diem_SV_TC
             //if (option == "add") bdsLop.RemoveCurrent();
             bdsCTHP.CancelEdit();
 
-            loadData();
+            this.cthpTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.cthpTableAdapter.Fill(this.DS.CT_DONGHOCPHI);
 
             if (positionCT > 0)
             {

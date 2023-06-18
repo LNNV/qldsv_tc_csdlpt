@@ -42,12 +42,12 @@ namespace Quan_Ly_Diem_SV_TC
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cmbMaGV = new DevExpress.XtraEditors.LookUpEdit();
-            this.dS = new Quan_Ly_Diem_SV_TC.DS();
             this.gIANGVIENBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dS = new Quan_Ly_Diem_SV_TC.DS();
             this.gIANGVIENTableAdapter = new Quan_Ly_Diem_SV_TC.DSTableAdapters.GIANGVIENTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.cmbMaGV.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gIANGVIENBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
             this.SuspendLayout();
             // 
             // txtTaiKhoan
@@ -101,6 +101,7 @@ namespace Quan_Ly_Diem_SV_TC
             this.btnThoat.TabIndex = 7;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // label1
             // 
@@ -162,15 +163,15 @@ namespace Quan_Ly_Diem_SV_TC
             this.cmbMaGV.Size = new System.Drawing.Size(319, 28);
             this.cmbMaGV.TabIndex = 12;
             // 
-            // dS
-            // 
-            this.dS.DataSetName = "DS";
-            this.dS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // gIANGVIENBindingSource
             // 
             this.gIANGVIENBindingSource.DataMember = "GIANGVIEN";
             this.gIANGVIENBindingSource.DataSource = this.dS;
+            // 
+            // dS
+            // 
+            this.dS.DataSetName = "DS";
+            this.dS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gIANGVIENTableAdapter
             // 
@@ -197,8 +198,8 @@ namespace Quan_Ly_Diem_SV_TC
             this.Text = "Tạo tài khoản";
             this.Load += new System.EventHandler(this.frmTaoLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cmbMaGV.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gIANGVIENBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

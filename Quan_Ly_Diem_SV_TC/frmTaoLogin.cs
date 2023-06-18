@@ -137,5 +137,10 @@ namespace Quan_Ly_Diem_SV_TC
 
             }
         }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

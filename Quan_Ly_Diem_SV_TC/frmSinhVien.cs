@@ -509,13 +509,14 @@ namespace Quan_Ly_Diem_SV_TC
             gridViewSV.OptionsBehavior.ReadOnly = true;
             lopGridControl.Enabled = true;
             //if (option == "add") bdsLop.RemoveCurrent();
-            bdsLop.CancelEdit();
+            bdsSV.CancelEdit();
 
-            loadData();
+            this.sinhvienTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.sinhvienTableAdapter.Fill(this.DS.SINHVIEN);
 
             if (positionSV > 0)
             {
-                bdsLop.Position = positionSV;
+                bdsSV.Position = positionSV;
             }
 
             btnGhiSV.Enabled = btnUndoSV.Enabled = false;

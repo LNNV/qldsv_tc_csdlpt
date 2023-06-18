@@ -116,8 +116,9 @@ namespace Quan_Ly_Diem_SV_TC
             txtSVToiThieu.Text = "1";
             cmbHocKy.SelectedIndex = 1;
             cmbHocKy.SelectedIndex = 0;
-            cmbMaMH.SelectedIndex = 1;
-            cmbMaMH.SelectedIndex = 0;
+            //cmbMaMH.SelectedIndex = 1;
+            //cmbMaMH.SelectedIndex = 0;
+            cmbMaMH.ItemIndex = 0;
             cmbMaGV.SelectedIndex = 1;
             cmbMaGV.SelectedIndex = 0;
             huyCheckEdit.Checked = false;
@@ -144,6 +145,7 @@ namespace Quan_Ly_Diem_SV_TC
             gbLTC.Enabled = false;
             btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnLamMoi.Enabled = btnThoat.Enabled = true;
             btnGhi.Enabled = btnUndo.Enabled = false;
+            huyCheckEdit.Enabled = false;
             option = "";
             cmbKhoa.Enabled = true;
         }
@@ -189,6 +191,7 @@ namespace Quan_Ly_Diem_SV_TC
             btnGhi.Enabled = btnUndo.Enabled = true;
 
             btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnLamMoi.Enabled = false;
+            huyCheckEdit.Enabled = true;
             cmbKhoa.Enabled = false;
         }
 
@@ -236,6 +239,7 @@ namespace Quan_Ly_Diem_SV_TC
                     btnGhi.Enabled = btnUndo.Enabled = false;
                     gbLTC.Enabled = false;
                     cmbKhoa.Enabled = true;
+                    huyCheckEdit.Enabled = false;
                     option = "";
                     errorProvider.Clear();
                 }
@@ -264,7 +268,7 @@ namespace Quan_Ly_Diem_SV_TC
             {
                 if (dataRowView["NIENKHOA"].ToString().Equals(txtNienKhoa.Text.Trim()) &&
                     dataRowView["HOCKY"].ToString().Equals(cmbHocKy.SelectedItem.ToString()) &&
-                    dataRowView["MAMH"].ToString().Equals(cmbMaMH.SelectedValue.ToString()) &&
+                    dataRowView["MAMH"].ToString().Trim().Equals(cmbMaMH.Text.ToString().Trim()) &&
                     dataRowView["NHOM"].ToString().Equals(txtNhom.Text.Trim()) &&
                     dataRowView["HUYLOP"].Equals(false) && i != bdsLTC.Position)
                 {

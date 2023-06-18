@@ -73,6 +73,7 @@ namespace Quan_Ly_Diem_SV_TC
             this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblKhoa = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.table1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -182,6 +183,7 @@ namespace Quan_Ly_Diem_SV_TC
             // ReportHeader
             // 
             this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.lblKhoa,
             this.lblNienKhoa,
             this.lblHocKy,
             this.lbLop,
@@ -191,7 +193,7 @@ namespace Quan_Ly_Diem_SV_TC
             // 
             // lblNienKhoa
             // 
-            this.lblNienKhoa.LocationFloat = new DevExpress.Utils.PointFloat(167.6417F, 52.38868F);
+            this.lblNienKhoa.LocationFloat = new DevExpress.Utils.PointFloat(167.6417F, 78.38889F);
             this.lblNienKhoa.Multiline = true;
             this.lblNienKhoa.Name = "lblNienKhoa";
             this.lblNienKhoa.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -200,7 +202,7 @@ namespace Quan_Ly_Diem_SV_TC
             // 
             // lblHocKy
             // 
-            this.lblHocKy.LocationFloat = new DevExpress.Utils.PointFloat(329F, 52.38868F);
+            this.lblHocKy.LocationFloat = new DevExpress.Utils.PointFloat(329F, 78.38889F);
             this.lblHocKy.Multiline = true;
             this.lblHocKy.Name = "lblHocKy";
             this.lblHocKy.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -428,6 +430,17 @@ namespace Quan_Ly_Diem_SV_TC
             this.xrLabel1.SizeF = new System.Drawing.SizeF(119.6532F, 23F);
             this.xrLabel1.Text = "Tổng số sinh viên: ";
             // 
+            // lblKhoa
+            // 
+            this.lblKhoa.LocationFloat = new DevExpress.Utils.PointFloat(3.999996F, 52.38868F);
+            this.lblKhoa.Multiline = true;
+            this.lblKhoa.Name = "lblKhoa";
+            this.lblKhoa.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.lblKhoa.SizeF = new System.Drawing.SizeF(642.0002F, 23F);
+            this.lblKhoa.StylePriority.UseTextAlignment = false;
+            this.lblKhoa.Text = "KHOA...";
+            this.lblKhoa.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
+            // 
             // xrptDSHocPhi
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -492,5 +505,6 @@ namespace Quan_Ly_Diem_SV_TC
         private DevExpress.XtraReports.UI.XRLabel xrLabel2;
         private DevExpress.XtraReports.UI.XRLabel xrLabel1;
         public DevExpress.XtraReports.UI.XRLabel lblTienChu;
+        public DevExpress.XtraReports.UI.XRLabel lblKhoa;
     }
 }

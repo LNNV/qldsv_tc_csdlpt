@@ -136,7 +136,7 @@ namespace Quan_Ly_Diem_SV_TC
             this.cmbLop.Name = "cmbLop";
             this.cmbLop.Size = new System.Drawing.Size(372, 28);
             this.cmbLop.TabIndex = 39;
-            this.cmbLop.ValueMember = "MALOP";
+            this.cmbLop.ValueMember = "MAKHOA";
             // 
             // nkTableAdapter
             // 

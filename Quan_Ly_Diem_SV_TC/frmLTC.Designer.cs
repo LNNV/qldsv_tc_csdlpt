@@ -72,6 +72,8 @@ namespace Quan_Ly_Diem_SV_TC
             this.colHUYLOP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.gbLTC = new System.Windows.Forms.GroupBox();
+            this.cmbMaMH = new DevExpress.XtraEditors.LookUpEdit();
+            this.bdsMH = new System.Windows.Forms.BindingSource(this.components);
             this.cmbHocKy = new System.Windows.Forms.ComboBox();
             this.huyCheckEdit = new DevExpress.XtraEditors.CheckEdit();
             this.txtMaKhoa = new DevExpress.XtraEditors.TextEdit();
@@ -79,8 +81,6 @@ namespace Quan_Ly_Diem_SV_TC
             this.cmbMaGV = new System.Windows.Forms.ComboBox();
             this.bdsGV = new System.Windows.Forms.BindingSource(this.components);
             this.txtNhom = new DevExpress.XtraEditors.SpinEdit();
-            this.cmbMaMH = new System.Windows.Forms.ComboBox();
-            this.bdsMH = new System.Windows.Forms.BindingSource(this.components);
             this.txtNienKhoa = new DevExpress.XtraEditors.TextEdit();
             this.mhTableAdapter = new Quan_Ly_Diem_SV_TC.DSTableAdapters.MONHOCTableAdapter();
             this.gvTableAdapter = new Quan_Ly_Diem_SV_TC.DSTableAdapters.GIANGVIENTableAdapter();
@@ -103,12 +103,13 @@ namespace Quan_Ly_Diem_SV_TC
             ((System.ComponentModel.ISupportInitialize)(this.ltcGridView)).BeginInit();
             this.panel2.SuspendLayout();
             this.gbLTC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbMaMH.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsMH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.huyCheckEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaKhoa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSVToiThieu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNhom.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsMH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNienKhoa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsDK)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -497,6 +498,7 @@ namespace Quan_Ly_Diem_SV_TC
             // 
             // gbLTC
             // 
+            this.gbLTC.Controls.Add(this.cmbMaMH);
             this.gbLTC.Controls.Add(hOCKYLabel);
             this.gbLTC.Controls.Add(this.cmbHocKy);
             this.gbLTC.Controls.Add(hUYLOPLabel);
@@ -510,7 +512,6 @@ namespace Quan_Ly_Diem_SV_TC
             this.gbLTC.Controls.Add(nHOMLabel);
             this.gbLTC.Controls.Add(this.txtNhom);
             this.gbLTC.Controls.Add(mAMHLabel);
-            this.gbLTC.Controls.Add(this.cmbMaMH);
             this.gbLTC.Controls.Add(nIENKHOALabel);
             this.gbLTC.Controls.Add(this.txtNienKhoa);
             this.gbLTC.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -521,6 +522,25 @@ namespace Quan_Ly_Diem_SV_TC
             this.gbLTC.TabIndex = 0;
             this.gbLTC.TabStop = false;
             this.gbLTC.Text = "Nhập thông tin lớp tín chỉ";
+            // 
+            // cmbMaMH
+            // 
+            this.cmbMaMH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsLTC, "MAMH", true));
+            this.cmbMaMH.Location = new System.Drawing.Point(303, 58);
+            this.cmbMaMH.MenuManager = this.barManager1;
+            this.cmbMaMH.Name = "cmbMaMH";
+            this.cmbMaMH.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbMaMH.Properties.DataSource = this.bdsMH;
+            this.cmbMaMH.Properties.DisplayMember = "MAMH";
+            this.cmbMaMH.Properties.ValueMember = "MAMH";
+            this.cmbMaMH.Size = new System.Drawing.Size(373, 28);
+            this.cmbMaMH.TabIndex = 17;
+            // 
+            // bdsMH
+            // 
+            this.bdsMH.DataMember = "MONHOC";
+            this.bdsMH.DataSource = this.DS;
             // 
             // cmbHocKy
             // 
@@ -608,23 +628,6 @@ namespace Quan_Ly_Diem_SV_TC
             this.txtNhom.Size = new System.Drawing.Size(121, 28);
             this.txtNhom.TabIndex = 7;
             // 
-            // cmbMaMH
-            // 
-            this.cmbMaMH.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsLTC, "MAMH", true));
-            this.cmbMaMH.DataSource = this.bdsMH;
-            this.cmbMaMH.DisplayMember = "MAMH";
-            this.cmbMaMH.FormattingEnabled = true;
-            this.cmbMaMH.Location = new System.Drawing.Point(303, 59);
-            this.cmbMaMH.Name = "cmbMaMH";
-            this.cmbMaMH.Size = new System.Drawing.Size(373, 28);
-            this.cmbMaMH.TabIndex = 5;
-            this.cmbMaMH.ValueMember = "MAMH";
-            // 
-            // bdsMH
-            // 
-            this.bdsMH.DataMember = "MONHOC";
-            this.bdsMH.DataSource = this.DS;
-            // 
             // txtNienKhoa
             // 
             this.txtNienKhoa.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsLTC, "NIENKHOA", true));
@@ -680,12 +683,13 @@ namespace Quan_Ly_Diem_SV_TC
             this.panel2.ResumeLayout(false);
             this.gbLTC.ResumeLayout(false);
             this.gbLTC.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbMaMH.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsMH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.huyCheckEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaKhoa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSVToiThieu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNhom.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsMH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNienKhoa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsDK)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
@@ -730,7 +734,6 @@ namespace Quan_Ly_Diem_SV_TC
         private DevExpress.XtraGrid.Columns.GridColumn colMAKHOA;
         private DevExpress.XtraGrid.Columns.GridColumn colSOSVTOITHIEU;
         private DevExpress.XtraGrid.Columns.GridColumn colHUYLOP;
-        private System.Windows.Forms.ComboBox cmbMaMH;
         private System.Windows.Forms.BindingSource bdsMH;
         private DSTableAdapters.MONHOCTableAdapter mhTableAdapter;
         private System.Windows.Forms.ComboBox cmbMaGV;
@@ -744,5 +747,6 @@ namespace Quan_Ly_Diem_SV_TC
         private DSTableAdapters.DANGKYTableAdapter dkTableAdapter;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.ComboBox cmbHocKy;
+        private DevExpress.XtraEditors.LookUpEdit cmbMaMH;
     }
 }

@@ -117,6 +117,7 @@ namespace Quan_Ly_Diem_SV_TC
             Program.mlogin = "loginsv";
             Program.password = "1408";
             Program.servername = cmbKhoa.SelectedValue.ToString();
+            Program.khoaID = cmbKhoa.SelectedIndex;
 
             if (Program.KetNoi() == 0)
             {

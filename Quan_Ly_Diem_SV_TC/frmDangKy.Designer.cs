@@ -54,6 +54,7 @@ namespace Quan_Ly_Diem_SV_TC
             this.SP_SV_LAY_DS_LTCGridControl = new DevExpress.XtraGrid.GridControl();
             this.SP_SV_LAY_DS_LTCGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.txtMaLTC = new System.Windows.Forms.TextBox();
+            this.btnHuy = new System.Windows.Forms.Button();
             mALTCLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdsNienKhoa)).BeginInit();
@@ -263,6 +264,7 @@ namespace Quan_Ly_Diem_SV_TC
             this.SP_SV_LAY_DS_LTCGridView.GridControl = this.SP_SV_LAY_DS_LTCGridControl;
             this.SP_SV_LAY_DS_LTCGridView.Name = "SP_SV_LAY_DS_LTCGridView";
             this.SP_SV_LAY_DS_LTCGridView.OptionsBehavior.ReadOnly = true;
+            this.SP_SV_LAY_DS_LTCGridView.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.SP_SV_LAY_DS_LTCGridView_FocusedRowChanged);
             // 
             // txtMaLTC
             // 
@@ -273,11 +275,23 @@ namespace Quan_Ly_Diem_SV_TC
             this.txtMaLTC.Size = new System.Drawing.Size(251, 26);
             this.txtMaLTC.TabIndex = 6;
             // 
+            // btnHuy
+            // 
+            this.btnHuy.Enabled = false;
+            this.btnHuy.Location = new System.Drawing.Point(579, 372);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(122, 33);
+            this.btnHuy.TabIndex = 7;
+            this.btnHuy.Text = "Hủy đăng ký";
+            this.btnHuy.UseVisualStyleBackColor = true;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
+            // 
             // frmDangKy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1396, 543);
+            this.Controls.Add(this.btnHuy);
             this.Controls.Add(mALTCLabel);
             this.Controls.Add(this.txtMaLTC);
             this.Controls.Add(this.SP_SV_LAY_DS_LTCGridControl);
@@ -324,5 +338,6 @@ namespace Quan_Ly_Diem_SV_TC
         private DevExpress.XtraGrid.GridControl SP_SV_LAY_DS_LTCGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView SP_SV_LAY_DS_LTCGridView;
         private System.Windows.Forms.TextBox txtMaLTC;
+        private System.Windows.Forms.Button btnHuy;
     }
 }

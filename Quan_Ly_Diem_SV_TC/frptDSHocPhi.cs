@@ -32,7 +32,12 @@ namespace Quan_Ly_Diem_SV_TC
 
         private void btnXem_Click(object sender, EventArgs e)
         {
+            String khoa = "";
             xrptDSHocPhi rpt = new xrptDSHocPhi(cmbLop.Text, cmbNienKhoa.Text, int.Parse(cmbHocKy.Text));
+            //MessageBox.Show(cmbLop.SelectedValue.ToString());
+            if (cmbLop.SelectedValue.ToString().Trim().Equals("CNTT")) khoa = "Công nghệ thông tin";
+            else khoa = "Viễn thông";
+            rpt.lblKhoa.Text = "KHOA: " + khoa.ToUpper();
             rpt.lbLop.Text = "MÃ LỚP: " + cmbLop.Text;
             rpt.lblNienKhoa.Text = "Niên khóa: " + cmbNienKhoa.Text;
             rpt.lblHocKy.Text = "Học kỳ: " + cmbHocKy.Text;

@@ -57,6 +57,14 @@ namespace Quan_Ly_Diem_SV_TC
             {
                 this.SP_SV_LAY_DS_LTCTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.SP_SV_LAY_DS_LTCTableAdapter.Fill(this.DS.SP_SV_LAY_DS_LTC, cmbNienKhoa.Text, int.Parse(cmbHocKy.Text));
+                foreach (DataRowView row in bdsDangKy)
+                {
+                    if (row["MALTC"].ToString().Equals(txtMaLTC.Text.Trim()) && row["MASV"].ToString().Equals(Program.masv) && row["HUYDANGKY"].ToString().Equals("False"))
+                    {
+                        btnHuy.Enabled = true;
+                        return;
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -74,7 +82,7 @@ namespace Quan_Ly_Diem_SV_TC
             }
            foreach (DataRowView row in bdsDangKy)
            {
-                if (row["MALTC"].ToString().Equals(txtMaLTC.Text.Trim()) && row["MASV"].ToString().Equals(Program.masv))
+                if (row["MALTC"].ToString().Equals(txtMaLTC.Text.Trim()) && row["MASV"].ToString().Equals(Program.masv) && row["HUYDANGKY"].ToString().Equals("False"))
                 {
                     MessageBox.Show("Bạn đã đăng ký lớp tín chỉ này rồi!");
                     return;
@@ -104,17 +112,81 @@ namespace Quan_Ly_Diem_SV_TC
                     this.dangkyTableAdapter.Fill(this.DS.DANGKY);
                     this.SP_SV_LAY_DS_LTCTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.SP_SV_LAY_DS_LTCTableAdapter.Fill(this.DS.SP_SV_LAY_DS_LTC, cmbNienKhoa.Text, int.Parse(cmbHocKy.Text));
+                    foreach (DataRowView row in bdsDangKy)
+                    {
+                        if (row["MALTC"].ToString().Equals(txtMaLTC.Text.Trim()) && row["MASV"].ToString().Equals(Program.masv))
+                        {
+                            btnHuy.Enabled = true;
+                            return;
+                        }
+                    }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
-           } 
+            } 
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Xác nhận hủy đăng ký", "Xác nhận.", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                try
+                {
+                    SqlParameter maltcPara = new SqlParameter();
+                    maltcPara.SqlDbType = SqlDbType.Int;
+                    maltcPara.ParameterName = "@maltc";
+                    maltcPara.Value = int.Parse(txtMaLTC.Text.Trim());
+                    SqlParameter masvPara = new SqlParameter();
+                    masvPara.SqlDbType = SqlDbType.NChar;
+                    masvPara.ParameterName = "@masv";
+                    masvPara.Value = Program.masv;
+                    Program.KetNoi();
+                    SqlCommand sqlcmd = new SqlCommand("SP_HUY_DK_LTC", Program.conn);
+                    sqlcmd.Parameters.Clear();
+                    sqlcmd.CommandType = CommandType.StoredProcedure;
+                    sqlcmd.Parameters.Add(maltcPara);
+                    sqlcmd.Parameters.Add(masvPara);
+                    sqlcmd.ExecuteNonQuery();
+                    MessageBox.Show("Hủy đăng ký thành công!");
+                    this.dangkyTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.dangkyTableAdapter.Fill(this.DS.DANGKY);
+                    this.SP_SV_LAY_DS_LTCTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.SP_SV_LAY_DS_LTCTableAdapter.Fill(this.DS.SP_SV_LAY_DS_LTC, cmbNienKhoa.Text, int.Parse(cmbHocKy.Text));
+                    foreach (DataRowView row in bdsDangKy)
+                    {
+                        if (row["MALTC"].ToString().Equals(txtMaLTC.Text.Trim()) && row["MASV"].ToString().Equals(Program.masv) && row["HUYDANGKY"].ToString().Equals("False"))
+                        {
+                            btnHuy.Enabled = true;
+                            return;
+                        }
+                    }
+                    btnHuy.Enabled = false;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void SP_SV_LAY_DS_LTCGridView_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            foreach (DataRowView row in bdsDangKy)
+            {
+                if (row["MALTC"].ToString().Equals(txtMaLTC.Text.Trim()) && row["MASV"].ToString().Equals(Program.masv) && row["HUYDANGKY"].ToString().Equals("False"))
+                {
+                    btnHuy.Enabled = true;
+                    return;
+                }
+            }
+            btnHuy.Enabled = false;
         }
     }
 }
